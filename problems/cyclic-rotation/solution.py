@@ -22,7 +22,7 @@ def solution(A, k):
 #   input: list
 #   limits: limits of the list in which to apply reverse upon (e. g. [0, 7))
 # Time and space complexity:
-#   The time complexity is O(n/2).
+#   The time complexity is O(n).
 #   The space complexity is O(1) as we reverse the list in-place.
 def reverse(input, limits):
     if len(input) < 2:
