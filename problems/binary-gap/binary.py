@@ -1,4 +1,4 @@
-def int_to_binary(n):
+def binary(n):
     """
     Time complexity: O(log(n))
     Space complexity: O(log(n))
