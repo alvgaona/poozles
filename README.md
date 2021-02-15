@@ -15,6 +15,7 @@ This will contain a different sort of problems from well-known websites, namely
     - [Add Strings](https://leetcode.com/problems/add-strings)
     - [Battleships in a Board](https://leetcode.com/problems/battleships-in-a-board)
     - [Number of Steps to Reduce a Number to Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero)
+    - [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones)
 - Codility
     - [Binary Gap](https://app.codility.com/programmers/lessons/1-iterations/binary_gap)
   
