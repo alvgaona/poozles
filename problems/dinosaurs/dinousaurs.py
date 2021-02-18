@@ -1,35 +1,7 @@
-#!/bin/python3
-from math import sqrt
+# https://gist.github.com/alvgaona/b6ad35add72b8e6d8c095f4c1cb07f4e
 
 
-class Dinosaur(object):
-    __g = 9.8
-
-    def __init__(self, name: str, leg_length: float, stride_length: float, stance: str, diet: str) -> None:
-        self.name = name
-        self.leg_length = leg_length
-        self.stride_length = stride_length
-        self.stance = stance
-        self.diet = diet
-
-    def __str__(self):
-        return "Name: {}, Speed: {}, Stance: {}, Diet: {}, Leg Length: {}, Stride Length: {}" \
-            .format(self.name, self.speed(), self.stance, self.diet, self.leg_length, self.stride_length)
-
-    def __repr__(self):
-        return self.__str__()
-
-    def __lt__(self, other):
-        return self.speed() < other.speed()
-
-    def __gt__(self, other):
-        return self.speed() > other.speed()
-
-    def speed(self):
-        if self.leg_length is None or self.stride_length is None:
-            return 0
-
-        return ((self.stride_length / self.leg_length) - 1) * sqrt(self.leg_length * Dinosaur.__g)
+from dinosaur import Dinosaur
 
 
 def gather_dinosaurs(lines1, lines2):
@@ -70,22 +42,3 @@ def create_sorted_dinosaurs(dino_dict: dict) -> list:
         dinosaurs.append(Dinosaur(k, leg_length, stride_length, v.get('stance'), v.get('diet')))
 
     return sorted(dinosaurs, key=lambda x: x.speed(), reverse=True)
-
-
-def main(*args, **kwargs):
-    file1 = 'dataset1.csv'
-    file2 = 'dataset2.csv'
-
-    with open(file1) as f1, open(file2) as f2:
-        lines1 = f1.readlines()[1:]
-        lines2 = f2.readlines()[1:]
-
-        dino_dict = gather_dinosaurs(lines1, lines2)
-
-        dinosaurs = create_sorted_dinosaurs(dino_dict)
-
-        [print(dino) for dino in dinosaurs if dino.stance == 'bipedal']
-
-
-if __name__ == '__main__':
-    exit(main())
